@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row text-center">
+    <p class="fs-4 mb-3">Oops! Looks like no such Url exists</p> <br>
+    <p class="fs-6">Shorten your urls  <a href="{% url 'links:create-link' %}">here</a></p>
+</div>
+{% endblock content %}

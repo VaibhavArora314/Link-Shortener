@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if links %}
+    <div class="table-responsive">
+        <table class="table text-light">
+            <thead>
+                <tr>
+                    <td scope="col">Original URL</td>
+                    <td scope="col">Small URL</td>
+                    <td scope="col">Visits</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for link in links %}
+                <tr>
+                    <th scope="row">{{link.original_link}}</th>
+                    <td>{{prefix}}{{link.tag}}/</td>
+                    <td>{{link.visits}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="row text-center">
+        <p class="fs-4 mb-3">Looks like you don't have any URL yet</p> <br>
+        <p class="fs-6">Shorten your urls  <a href="{% url 'links:create-link' %}">here</a></p>
+    </div>
+    {% endif %}
+    {% if is_paginated %}
+    <div class="pagination">
+        <span class="page-links">
+            {% if page_obj.has_previous %}
+                <a href="{% url 'links:my-links' %}?page={{ page_obj.previous_page_number }}" class="text-decoration-none text-light">    
+                    <button class="btn btn-primary">Previous</button>
+                </a>
+            {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+            {% if page_obj.has_next %}
+                <a href="{% url 'links:my-links' %}?page={{ page_obj.next_page_number }}" class="text-decoration-none text-light">
+                    <button class="btn btn-primary">Next</button>
+                </a>
+            {% endif %}
+        </span>
+    </div>
+    {% endif %}
+{% endblock content %}
