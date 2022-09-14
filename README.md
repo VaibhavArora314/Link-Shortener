@@ -20,3 +20,24 @@ To run migrations.<br />
 To run the project locally, run following cmd.<br />
 <code>python3 manage.py runserver</code><br />
 This will run your project at 8000 port by default.
+
+# Project Snapshots
+
+Home Page
+
+![Home](https://user-images.githubusercontent.com/84830429/190119598-3c1f7ea3-7be8-43c8-850e-461ffe2ea523.png)
+
+
+Login
+
+![Login](https://user-images.githubusercontent.com/84830429/190119625-6c08db11-1dba-4572-83b7-1a8e9c0c5044.png)
+
+
+Register
+
+![Register (1)](https://user-images.githubusercontent.com/84830429/190120195-c7fe931f-d2a4-4c4e-bcd0-d0ac1e134803.png)
+
+
+Your Links Info
+
+![Links Info](https://user-images.githubusercontent.com/84830429/190119674-65379b2f-3c20-43e6-84c4-9e4fd7fd881f.png)
