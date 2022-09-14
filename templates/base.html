@@ -15,7 +15,7 @@
         }
     </style>
 </head>
-<body class="vh-100 text-light">
+<body class="vh-100 text-light px-2">
     <nav class="container navbar navbar-dark bg-dark mb-5">
         <div class="container">
             <a class="navbar-brand" href="{% url 'links:create-link' %}">Small URL</a>
@@ -41,7 +41,7 @@
                 </ul>
         </div>
     </nav>
-    <div class="container h-100 bg-dark bg-opacity-50">
+    <div class="container bg-dark bg-opacity-50 py-2 border border-dark rounded">
         {% block content %}
 
         {% endblock content %}

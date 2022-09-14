@@ -1,26 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<p class="fs-4 mb-2">Shorten your links here</p> <br>
 <form action = "" method = "post">
     {% csrf_token %}
-    {% for field in form %}
-        <div class = "mb-3">
-            {{field}}
-            {% if field.errors %}
-                {% for error in field.errors %}
+        <div class = "mb-2">
+            <label for='original-link'>Enter Url to Shorten</label>
+            {{form.original_link}}
+            {% if form.original_link.errors %}
+                {% for error in form.original_link.errors %}
                     <span class="row mx-2 fw-semibold">{{error}}</span>
                 {% endfor %}
             {% endif %}
         </div>
-    {% endfor %}
+        <div class = "mb-3">
+            <label for="tag">Enter Tag</label>
+            {{form.tag}}
+            {% if form.tag.errors %}
+                {% for error in form.tag.errors %}
+                    <span class="row mx-2 fw-semibold">{{error}}</span>
+                {% endfor %}
+            {% endif %}
+        </div>
     <input type="submit" value=Submit class="btn btn-primary">
 </form>
 {% if shortened_url %}
     <div class="row text-center">
-        <span class="fs-5">
+        <span class="fs-6">
             Shortened url: 
             <a href="{{shortened_url}}" class="shortened-link bg-dark bg-opacity-75">{{shortened_url}}</a>
-            <button class="copy btn btn-light" onclick="copyToClipboard('.shortened-link')"><i class="fa fa-regular fa-copy"></i></button>
+            <button class="copy btn bg-transparent" onclick="copyToClipboard('.shortened-link')"><i class="fa fa-regular fa-copy text-white"></i></button>
         </span>
     </div>
     <script>
