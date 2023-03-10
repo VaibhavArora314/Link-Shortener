@@ -35,7 +35,7 @@ class CreateLink(CreateView):
         # Render the template
         # get_context_data populates object in the context 
         # or you also get it with the name you want if you define context_object_name in the class
-        return self.render_to_response(self.get_context_data(form=form,shortened_url=str(self.request.build_absolute_uri('/shortener/' + form.instance.tag + '/'))))
+        return self.render_to_response(self.get_context_data(form=form,shortened_url=str(self.request.build_absolute_uri('/s/' + form.instance.tag + '/'))))
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -49,9 +49,11 @@ class ListLink(LoginRequiredMixin,ListView):
     paginate_by = 5
 
     def get_queryset(self):
+        if (self.request.user.is_staff):
+            return Link.objects.all()
         return Link.objects.filter(user = self.request.user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['prefix'] = self.request.build_absolute_uri('/shortener/')
+        context['prefix'] = self.request.build_absolute_uri('/s/')
         return context
