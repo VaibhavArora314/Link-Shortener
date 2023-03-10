@@ -84,7 +84,12 @@ WSGI_APPLICATION = 'shortener.wsgi.application'
 #     }
 # }
 
-DATABASES = {'default': dj_database_url.config(default=os.environ['DATABASE_URL'], engine='django.db.backends.postgresql')}
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.environ['DATABASE_URL'],
+        engine='django.db.backends.postgresql'
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
