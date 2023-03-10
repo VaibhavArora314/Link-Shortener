@@ -1,5 +1,5 @@
 # Link Shotener
-This is link shortener app made in Django(4.1.1). You can shorten your urls with or without logging in. After logging in, you can see more about your shortened urls on a separate page. All the urls which are shortened while you are logged in can be seen on this page with the no of visits.
+This is link shortener app made in Django(4.1.1). You can shorten your urls with or without logging in. After logging in, you can see more about your shortened urls on a separate page. All the urls which are shortened while you are logged in can be seen on this page with the no of visits. Project is live [here](https://small-urls.vercel.app/).
 
 # Instructions
 
